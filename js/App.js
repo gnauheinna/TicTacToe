@@ -173,7 +173,7 @@ function init() {
             console.log('player move event');
             console.log(event)
       })
-      console.log(view.$.turn);
+      console.log(view.$.turn); 
 }
 
 window.addEventListener("load", init);
