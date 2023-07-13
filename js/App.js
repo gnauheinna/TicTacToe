@@ -173,10 +173,17 @@ const players = [
 function init() {
   const view = new View();
   const store = new Store(players);
-  console.log(store.game);
+
+  // Resets the game
   view.bindGameResetEvent((event) => {
-    console.log("Reset Game");
-    console.log(event);
+    view.closeAll();
+    //resets the game
+    store.reset();
+    // resets the board
+    view.clearMoves();
+    //set the turn to player one
+    view.setTurnIndicator(store.game.currentPlayer);
+    console.log(store.stats);
   });
 
   view.bindNewRoundEvent((event) => {
@@ -195,8 +202,20 @@ function init() {
 
     // place an icno of the current player in a square
     view.handlePlayerMove(square, store.game.currentPlayer);
+
     // advance to the next state by pushing a move to the moves array
     store.playerMove(+square.id);
+
+    //check if there's a winner
+    if (store.game.status.isComplete) {
+      view.openModal(
+        store.game.status.winner
+          ? `${store.game.status.winner.name} wins!`
+          : "Tie!"
+      );
+      return;
+    }
+
     // set the next player's turn indicator
     view.setTurnIndicator(store.game.currentPlayer);
   });

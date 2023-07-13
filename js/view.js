@@ -28,6 +28,7 @@ export default class View {
 
   bindGameResetEvent(handler) {
     this.$.resetBtn.addEventListener("click", handler);
+    this.$.modalBtn.addEventListener("click", handler);
   }
 
   bindNewRoundEvent(handler) {
@@ -52,6 +53,15 @@ export default class View {
     const icon = this.$.menuBtn.querySelector("i");
     icon.classList.toggle("fa-chevron-down");
     icon.classList.toggle("fa-chevron-up");
+  }
+
+  #closeMenu() {
+    this.$.menuItems.classList.add("hidden");
+    this.$.menuBtn.classList.remove("border");
+
+    const icon = this.$.menuBtn.querySelector("i");
+    icon.classList.add("fa-chevron-down");
+    icon.classList.remove("fa-chevron-up");
   }
 
   handlePlayerMove(squareEl, player) {
@@ -89,5 +99,25 @@ export default class View {
     if (!ellist) throw new Error("couldn't find selector");
 
     return ellist;
+  }
+
+  openModal(message) {
+    this.$.modal.classList.remove("hidden");
+    this.$.modalText.innerText = message;
+  }
+
+  #closeModal() {
+    this.$.modal.classList.add("hidden");
+  }
+
+  closeAll() {
+    this.#closeModal();
+    this.#closeMenu();
+  }
+
+  clearMoves() {
+    this.$$.squares.forEach((square) => {
+      square.replaceChildren();
+    });
   }
 }
