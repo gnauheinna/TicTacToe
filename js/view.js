@@ -124,6 +124,16 @@ export default class View {
     });
   }
 
+  initializeMoves(moves) {
+    this.$$.squares.forEach((square) => {
+      const existingMove = moves.find((move) => move.squareId === +square.id);
+
+      if (existingMove) {
+        this.handlePlayerMove(square, existingMove.player);
+      }
+    });
+  }
+
   updateScoreboard(p1Wins, p2Wins, ties) {
     this.$.p1Wins.innerText = `${p1Wins} wins`;
     this.$.p2Wins.innerText = `${p2Wins} wins`;
