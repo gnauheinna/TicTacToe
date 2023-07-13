@@ -29,7 +29,7 @@ export default class Store {
         };
       }),
       ties: state.history.currentRoundGames.filter(
-        (games) => this.game.status.winner === null
+        (game) => game.status.winner === null
       ).length,
     };
   }
@@ -102,6 +102,7 @@ export default class Store {
         status,
       });
     }
+
     stateClone.currentGameMoves = [];
 
     this.#saveState(stateClone);
