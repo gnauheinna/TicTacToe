@@ -27,3 +27,22 @@ export type GameState = {
     allGames: Game[];
   };
 };
+
+/**
+ *  Table Types
+ *
+ */
+
+export interface IColumn {
+  id:
+    | "Student ID"
+    | "Student Name"
+    | "Class ID"
+    | "Class Name"
+    | "Semester"
+    | "Final Grade";
+  label: string;
+  minWidth?: number;
+  align?: "right";
+  format?: (value: number) => string;
+}
