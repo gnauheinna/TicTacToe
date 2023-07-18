@@ -6,7 +6,6 @@ This project includes two refactors
 * A Vanilla Refactor of the game tictactoe 
 * A Typescript refactor
 
-This project is mobiile
 
 ## Tech Stack 
 Tech used: HTML, CSS & JS
