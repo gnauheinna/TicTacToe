@@ -2,7 +2,7 @@
 
 ## A fully functional TicTacToe project written in html, javascript, and css. The website is mobile response and works across browser tabs leveraging local storage
 
-!(https://github.com/gnauheinna/tictactoe/blob/main/images/tictactoe.jpg.png)
+![Visual Design](https://github.com/gnauheinna/tictactoe/blob/main/images/tictactoe.jpg.png)
 
 This project includes two refactors
 * A Vanilla Refactor of the game tictactoe 
