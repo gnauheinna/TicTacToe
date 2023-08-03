@@ -1,6 +1,8 @@
 # Tic Tac Toe
  A fully functional TicTacToe project written in html, javascript, and css. The website is mobile response and works across browser tabs leveraging local storage
 
+Visit ![website](https://tic-tac-toe-vanilla-javascript-ah.tiiny.site/) to play
+
 
 ## Visual Design
 
